@@ -9,6 +9,7 @@
 <body>
     <div id="menu"></div>
     <button id="btnDel">Delete</button>
+    <button id="btnRen">Render</button>
     <script src="Menu.js"></script>
     <script src="Menuitem.js"></script>
     <script src="Submenuitem.js"></script>
@@ -36,7 +37,10 @@
             menuBlock.innerHTML = menu.render();
 
             document.getElementById('btnDel').onclick = function () {
-                menu.remove();
+                menu.remove();                
+            }
+            document.getElementById('btnRen').onclick = function () {
+                menuBlock.innerHTML = menu.render();
             }
         }
     </script>
