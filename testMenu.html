@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="menu"></div>
+    <button id="btnDel">Delete</button>
+    <script src="Menu.js"></script>
+    <script src="Menuitem.js"></script>
+    <script src="Submenuitem.js"></script>
+    <script>
+        'use strict';
+
+        window.onload = function(){
+
+            let menuBlock = document.getElementById('menu');
+
+            let menu = new Menu('menu-id', 'menu', [
+                new MenuItem('/home', 'Home'),
+                new MenuItem('/about', 'About'),
+                new MenuItem('/contacts', 'Contacts'),
+                new SubMenuItem('submenu-id', 'submenu',
+                [
+                    new MenuItem('/about', 'About'),
+                    new MenuItem('/contacts', 'Contacts'),
+                    new MenuItem('/blog', 'Blog'),
+                ],
+                    '/submenu', 'Submenu'),
+                new MenuItem('/policy', 'Policy'),
+            ]);
+
+            menuBlock.innerHTML = menu.render();
+
+            document.getElementById('btnDel').onclick = function () {
+                menu.remove();
+            }
+        }
+    </script>
+</body>
+</html>
