@@ -21,10 +21,8 @@ class Menu {
     render(){
         let result = `<ul class="${this.className}" id="${this.id}">`;
         for(let i = 0; i < this.items.length; i++) {
-            if (this.items[i] instanceof MenuItem){
-                result += this.items[i].render();
-            }
-            if (this.items[i] instanceof SubMenuItem){
+            if (this.items[i] instanceof MenuItem ||
+                this.items[i] instanceof SubMenuItem){
                 result += this.items[i].render();
             }
         }
